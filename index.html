@@ -28,7 +28,7 @@
   <script crossorigin="anonymous" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js">
   </script>
   <title>
-   Novi &amp; Wahyu
+   Pernikahan Novi &amp; Wahyu - 16 Oktober 2026
   </title>
   <!-- 🎨 Google Fonts -->
   <!-- 1. Preconnect untuk mempercepat DNS dan TLS handshake -->
@@ -863,7 +863,7 @@
            <h3 class="activity-title" data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom" data-aos-delay="400" data-aos-duration="1000">
             Tasyakuran
            </h3>
-           <p class="activity-time" data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom" data-aos-delay="400" data-aos-duration="1000">
+           <p id="tanggal-tasyakuran" class="activity-time" data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom" data-aos-delay="400" data-aos-duration="1000">
             Rabu - Kamis<br>
             14 - 15 Oktober
            </p>
@@ -1296,13 +1296,27 @@
    </div>
    <!-- SCRIPT -->
    <script>
+    const params = new URLSearchParams(window.location.search);
+    const v = params.get("v");
+    let used_bank;
+
+    if (v === "2") {
+        document.getElementById("tanggal-tasyakuran").innerHTML = `
+            Jum'at 16 Oktober 2026
+        `;
+        used_bank =[{"id":1,"title":"Gopay","credential":"085161517176","name":"Wahyu Ajis Mustofa"}];
+    }else{
+        used_bank = [{"id":1,"title":"JAGO","credential":"505374616764","name":"Novi Pangestuti"},{"id":2,"title":"DANA","credential":"085161517176","name":"Wahyu Ajis Mustofa"}];
+    }
+
     window.dekeku_tmp = {};
     window.dekeku_tmp.sellerId = 2;
     window.dekeku_tmp.set = {};
     window.dekeku_tmp.set.undangan = 
     {
         event : "2026-10-16T14:00:00+07:00",
-        bank_option: [{"id":1,"title":"JAGO","credential":"505374616764","name":"Novi Pangestuti"},{"id":2,"title":"DANA","credential":"085161517176","name":"Wahyu Ajis Mustofa"}],
+        bank_option: used_bank,
+        bank_option2: used_bank,
         covers: 
         [
             {
